@@ -1,10 +1,10 @@
 package ru.job4j.calculate;
 
 /**
-@author Alexey Taranov
-* @version 1
-* @since 22.03.2019
-*/
+ *@author Alexey Taranov
+ * @version 1
+ * @since 22.03.2019
+ */
 public class Calculate {
     /**
      * Main.
