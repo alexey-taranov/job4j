@@ -1,16 +1,25 @@
+package ru.job4j.calculate;
+
 /**
-* Package for calculate task.
-*
-* @author Alexey Taranov
-* @version $Id$
-* @since 0.1
+@author Alexey Taranov
+* @version 1
+* @since 22.03.2019
 */
-
-package ru.job4j.calculate; 
-
 public class Calculate {
-	
-	public static void main(String[] args){
-		System.out.println("Hello world");
-	}
+    /**
+     * Main.
+     * @param args - args.
+     */
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+
+    /**
+     * Method echo.
+     * @param name Your name.
+     * @return Echo plus your name.
+     */
+    public String echo(String name) {
+        return "Echo, echo, echo : " + name;
+    }
 }
