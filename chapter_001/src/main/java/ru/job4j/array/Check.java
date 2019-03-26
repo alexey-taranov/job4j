@@ -8,8 +8,11 @@ public class Check {
      */
     public boolean mono(boolean[] data) {
         boolean result = false;
-        for (int index = 0; index != data.length; index++ ) {
-            if ( index + 1 != data.length && data[index] == data[index + 1]) {
+        for (int index = 1; index != data.length; index++ ) {
+            if (data[0] != data[index]) {
+                result = false;
+                break;
+            } else {
                 result = true;
             }
         }
