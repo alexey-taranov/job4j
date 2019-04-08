@@ -56,24 +56,28 @@ public class StartUI {
      * Метод показывает меню трекера.
      */
     private void showMenu() {
-        System.out.println("Меню. \n 0. Add new Item \n 1. Show all items \n 2. Edit item \n "
-                + "3. Delete item \n 4. Find item by Id \n 5. Find items by name \n 6. Exit Program \n Select:");
-    }
+        System.out.println("Меню. ");
+        System.out.println("0. Add new Item ");
+        System.out.println("1. Show all items ");
+        System.out.println("2. Edit item ");
+        System.out.println("3. Delete item ");
+        System.out.println("4. Find item by Id ");
+        System.out.println("5. Find items by name ");
+        System.out.println("6. Exit Program ");
+        System.out.println("Select:");
+        }
 
     /**
      * Метод показывает список всех заявок.
      */
     private void showAllItem() {
-        System.out.println("Список всех заявок: \n -----------------------");
-        int count = 0;
+        System.out.println("Список всех заявок:");
+        System.out.println("-----------------------");
         for (Item item : this.tracker.findAll()) {
-            System.out.println("Date: " + item.getTime());
-            System.out.println("Id: " + item.getId());
-            System.out.println("Name: " + item.getName());
-            System.out.println("Decs: " + item.getDesc() + "\n -----------------------");
-            count++;
+            System.out.println(item);
+            System.out.println("-----------------------");
         }
-        System.out.println("Всего заявок: " + count);
+
     }
 
     /**
@@ -118,7 +122,7 @@ public class StartUI {
             System.out.println("Имя заявки: " + item.getName());
             System.out.println("Описание заявки: " + item.getDesc());
         } else {
-            System.out.println("Заявки с таким id отсуствуют.");
+            System.out.println("Заявки с таким id отсутствуют.");
         }
     }
 
