@@ -2,37 +2,26 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
-//    private static final String ADD = "0";
-//    private static final String SHOWALL = "1";
-//    private static final String EDIT = "2";
-//    private static final String DELETE = "3";
-//    private static final String FINDID = "4";
-//    private static final String FINDNAME = "5";
-    private static final String EXIT = "6";
     private final Input input;
     private final Tracker tracker;
 
-    public StartUI(Input input, Tracker tracker) {
+    public StartUI(Input input, Tracker tracker) throws MenuOutException {
         this.input = input;
         this.tracker = tracker;
         this.init();
     }
 
-    public void init() {
-        boolean exit = false;
+    public void init() throws MenuOutException {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
-        while (!exit) {
+        String answer = this.input.ask("select:");
+        do {
             menu.show();
-            String answer = this.input.ask("select:");
-            menu.select(Integer.valueOf(answer));
-            if (EXIT.equals(answer)) {
-                exit = true;
-            }
-        }
+            menu.select(input.ask("select:", menu.getRangeActions()));
+        } while (!"y".equals(answer));
     }
 
-    public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+    public static void main(String[] args) throws MenuOutException {
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }
