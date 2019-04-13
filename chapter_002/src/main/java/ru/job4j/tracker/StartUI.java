@@ -11,14 +11,14 @@ public class StartUI {
         this.init();
     }
 
-    public void init() throws MenuOutException {
+    public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
-        String answer = this.input.ask("select:");
         do {
             menu.show();
             menu.select(input.ask("select:", menu.getRangeActions()));
-        } while (!"y".equals(answer));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+
     }
 
     public static void main(String[] args) throws MenuOutException {
