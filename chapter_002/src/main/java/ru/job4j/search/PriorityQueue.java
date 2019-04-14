@@ -25,5 +25,9 @@ public class PriorityQueue {
     public Task take() {
         return this.tasks.poll();
     }
+
+    public LinkedList<Task> getTasks() {
+        return tasks;
+    }
 }
 
