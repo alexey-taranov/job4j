@@ -1,20 +1,10 @@
 package ru.job4j.tracker;
 
-public class UpdateItem implements UserAction {
-
-    private int key;
-    private String info;
+public class UpdateItem extends BaseAction {
 
     public UpdateItem(int key, String info) {
-        this.key = key;
-        this.info = info;
+        super(key, info);
     }
-
-    @Override
-    public int key() {
-        return this.key;
-    }
-
 
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -28,10 +18,5 @@ public class UpdateItem implements UserAction {
         } else {
             System.out.println("Заявка НЕ отредактирована.");
         }
-    }
-
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), this.info);
     }
 }

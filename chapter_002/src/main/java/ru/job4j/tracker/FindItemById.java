@@ -1,18 +1,10 @@
 package ru.job4j.tracker;
 
-public class FindItemById implements UserAction {
+public class FindItemById extends BaseAction {
 
-    private int key;
-    private String info;
 
     public FindItemById(int key, String info) {
-        this.key = key;
-        this.info = info;
-    }
-
-    @Override
-    public int key() {
-        return this.key;
+        super(key, info);
     }
 
     @Override
@@ -28,10 +20,5 @@ public class FindItemById implements UserAction {
         } else {
             System.out.println("Заявки с таким id отсутствуют.");
         }
-    }
-
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), this.info);
     }
 }

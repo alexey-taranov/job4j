@@ -1,18 +1,9 @@
 package ru.job4j.tracker;
 
-public class ShowItems implements UserAction {
-
-    private int key;
-    private String info;
+public class ShowItems extends BaseAction {
 
     public ShowItems(int key, String info) {
-        this.key = key;
-        this.info = info;
-    }
-
-    @Override
-    public int key() {
-        return this.key;
+       super(key, info);
     }
 
     @Override
@@ -23,10 +14,5 @@ public class ShowItems implements UserAction {
             System.out.println(item);
             System.out.println("-----------------------");
         }
-    }
-
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), this.info);
     }
 }
