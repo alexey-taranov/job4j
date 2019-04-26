@@ -42,7 +42,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "y"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker);     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(tracker.findAll().get(0).getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
     @Test
@@ -80,10 +80,12 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("test name", "desc", System.currentTimeMillis());
         tracker.add(item);
+        Item next = new Item("test name2", "desc2", 1234L);
+        tracker.add(next);
         Input input = new StubInput(new String[]{"3", item.getId(), "y"});
-        new StartUI(input, tracker);
-        Item delItem = null;
-        assertThat(tracker.findById(item.getId()), is(delItem));
+        tracker.delete(item.getId());
+        // Проверяем, что осталась одна заявка с именем "test name2"
+        assertThat(tracker.findAll().get(0).getName(), is("test name2"));
     }
 
     @Test
