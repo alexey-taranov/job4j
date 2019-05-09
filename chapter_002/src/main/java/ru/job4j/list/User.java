@@ -38,13 +38,21 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         User user = (User) o;
 
-        if (id != user.id) return false;
-        if (!name.equals(user.name)) return false;
+        if (id != user.id) {
+            return false;
+        }
+        if (!name.equals(user.name)) {
+            return false;
+        }
         return city.equals(user.city);
     }
 

@@ -6,11 +6,11 @@ public class Merge {
         int i = 0, j = 0;
         for (int k = 0; k < rsl.length; k++) {
 
-            if (i > left.length-1) {
+            if (i > left.length - 1) {
                 int a = right[j];
                 rsl[k] = a;
                 j++;
-            } else if (j > right.length-1) {
+            } else if (j > right.length - 1) {
                 int a = left[i];
                 rsl[k] = a;
                 i++;

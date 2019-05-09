@@ -15,7 +15,7 @@ public class SortUser {
         return userSet;
     }
 
-    public List<User> sortNameLength (List<User> users) {
+    public List<User> sortNameLength(List<User> users) {
         users.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
@@ -25,7 +25,7 @@ public class SortUser {
         return users;
     }
 
-    public List<User> sortByAllFields (List<User> users) {
+    public List<User> sortByAllFields(List<User> users) {
         users.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
