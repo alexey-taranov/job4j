@@ -24,6 +24,13 @@ public class PointTest {
     }
 
     @Test
+    public void whenCheck3DItself() {
+        Point point = new Point(2, 3, 4);
+        double result = point.distance(point);
+        assertThat(result, is(0D));
+    }
+
+    @Test
     public void whenShowInfo() {
         Point first = new Point(1, 1);
         first.info();
