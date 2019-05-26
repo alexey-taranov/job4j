@@ -117,4 +117,12 @@ public class Tracker {
         }
         return result;
     }
+
+    public String getId(int i) {
+        return this.items.get(i).getId();
+    }
+
+    public String getItemToString(int i) {
+        return  this.items.get(i).toString();
+    }
 }

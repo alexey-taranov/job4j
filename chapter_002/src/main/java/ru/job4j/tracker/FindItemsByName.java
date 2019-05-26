@@ -1,20 +1,22 @@
 package ru.job4j.tracker;
 
+import java.util.function.Consumer;
+
 public class FindItemsByName extends BaseAction {
 
-    public FindItemsByName(int key, String info) {
-        super(key, info);
+    public FindItemsByName(int key, String info, Consumer<String> output) {
+        super(key, info, output);
     }
 
     @Override
     public void execute(Input input, Tracker tracker) {
-        System.out.println("Поиск заявки по имени");
+        output.accept("Поиск заявки по имени");
         String key = input.ask("Введите имя заявки: ");
         for (Item item : tracker.findByName(key)) {
-            System.out.println("Время создания заявки:" + item.getTime());
-            System.out.println("id заявки: " + item.getId());               //пробел
-            System.out.println("Имя заявки: " + item.getName());
-            System.out.println("Описание заявки: " + item.getDesc());
+            output.accept("Время создания заявки:" + item.getTime());
+            output.accept("id заявки: " + item.getId());               //пробел
+            output.accept("Имя заявки: " + item.getName());
+            output.accept("Описание заявки: " + item.getDesc());
         }
     }
 }
