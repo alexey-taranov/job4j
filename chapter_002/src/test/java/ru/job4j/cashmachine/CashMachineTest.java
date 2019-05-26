@@ -42,4 +42,26 @@ public class CashMachineTest {
                 )
         );
     }
+
+    @Test
+    public void when15to10and5() {
+        CashMachine machine = new CashMachine(new int[] {10, 5, 1});
+        int[]expect = {10, 5};
+        int[] result = machine.change(50, 35);
+        assertThat(result, is(expect));
+    }
+    @Test
+    public void when30to3for10() {
+        CashMachine machine = new CashMachine(new int[] {10, 5, 1});
+        int[] expect = {10, 10, 10};
+        int[] result = machine.change(50, 20);
+        assertThat(result, is(expect));
+    }
+    @Test
+    public void whentestallnumber() {
+        CashMachine machine = new CashMachine(new int[] {10, 5, 1});
+        int[] expect = {10, 5, 1, 1, 1};
+        int[] result = machine.change(50, 32);
+        assertThat(result, is(expect));
+    }
 }
