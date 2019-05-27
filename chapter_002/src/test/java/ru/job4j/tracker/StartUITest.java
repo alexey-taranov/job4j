@@ -6,17 +6,21 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.function.Consumer;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
-    // поле содержит дефолтный вывод в консоль.
-    private final PrintStream stdout = System.out;
     // буфер для результата.
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    private final Consumer<String> output = s -> stdout.println(s);
+    // поле содержит дефолтный вывод в консоль.
+    private final PrintWriter stdout = new PrintWriter(out);
+    private final Consumer<String> output = s -> {
+        stdout.println(s);
+        stdout.flush();
+    };
 
     public final static String LS = System.lineSeparator();
     public final static String MENU = new StringBuilder()
