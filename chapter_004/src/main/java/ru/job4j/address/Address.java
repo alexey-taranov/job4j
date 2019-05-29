@@ -14,6 +14,10 @@ public class Address {
         this.apartment = apartment;
     }
 
+    public String getCity() {
+        return city;
+    }
+
     @Override
     public String toString() {
         return "Address{"
@@ -22,5 +26,27 @@ public class Address {
                 + ", home=" + home
                 + ", apartment=" + apartment
                 + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Address address = (Address) o;
+
+        if (home != address.home) return false;
+        if (apartment != address.apartment) return false;
+        if (!city.equals(address.city)) return false;
+        return street.equals(address.street);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = city.hashCode();
+        result = 31 * result + street.hashCode();
+        result = 31 * result + home;
+        result = 31 * result + apartment;
+        return result;
     }
 }
