@@ -4,6 +4,7 @@ package ru.job4j.students;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Map;
 
 
 import static org.hamcrest.core.Is.is;
@@ -36,5 +37,23 @@ public class SchoolTest {
 
         assertThat(10, is(studentAfterSortHigherThan0.get(0).getScore()));
         assertThat(25, is(studentAfterSortHigherThan0.get(1).getScore()));
+    }
+
+    @Test
+    public void whenTestStudentSort() {
+        Student ivanov = new Student("Ivanov");
+        Student petrov = new Student("Petrov");
+        Student ololov = new Student("Ololov");
+        List<Student> students = List.of(
+                ivanov,
+                petrov,
+                ololov
+        );
+        School school = new School();
+        Map<String, Student> studentsWithSurname = school.collectToMap(students);
+
+        assertThat(ivanov, is(studentsWithSurname.get("Ivanov")));
+        assertThat(petrov, is(studentsWithSurname.get("Petrov")));
+        assertThat(ololov, is(studentsWithSurname.get("Ololov")));
     }
 }
