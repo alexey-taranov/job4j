@@ -56,4 +56,21 @@ public class SchoolTest {
         assertThat(petrov, is(studentsWithSurname.get("Petrov")));
         assertThat(ololov, is(studentsWithSurname.get("Ololov")));
     }
+
+    @Test
+    public void whenTestStudentsScore() {
+        Student ivanov = new Student(40, "Ivanov");
+        Student petrov = new Student(80, "Petrov");
+        Student ololov = new Student(70, "Ololov");
+        List<Student> students = List.of(
+                ivanov,
+                petrov,
+                ololov
+        );
+        School school = new School();
+        List<Student> studentsWithHighScore = school.levelOf(students, 60);
+
+        assertThat(petrov, is(studentsWithHighScore.get(0)));
+        assertThat(ololov, is(studentsWithHighScore.get(1)));
+    }
 }

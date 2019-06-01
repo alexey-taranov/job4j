@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class School {
 
@@ -16,5 +17,18 @@ public class School {
                 Collectors.toMap(
                         Student::getSurname,
                         e -> e));
+    }
+
+    public List<Student> levelOf(List<Student> students, int bound) {
+        return students.stream().sorted((o1, o2) -> {
+            if (o1 == null) {
+                return 1;
+            }
+            if (o2 == null) {
+                return  -1;
+            }
+            return Integer.compare(o2.getScore(), o1.getScore());
+        }).flatMap(Stream::ofNullable).takeWhile(v -> v.getScore() > bound)
+                .collect(Collectors.toList());
     }
 }
