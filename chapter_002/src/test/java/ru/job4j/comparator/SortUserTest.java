@@ -10,12 +10,12 @@ import static org.junit.Assert.assertThat;
 public class SortUserTest {
     @Test
     public void whenUserSort() {
-        List<User> users = new ArrayList<>(5);
-        users.add(new User("Alex", 23));
-        users.add(new User("Bob", 10));
-        users.add(new User("John", 34));
-        users.add(new User("Jim", 99));
-        users.add(new User("Shawn", 200));
+        List<User> users = List.of(
+                new User("Alex", 23),
+                new User("Bob", 10),
+                new User("John", 34),
+                new User("Jim", 99),
+                new User("Shawn", 200));
 
         SortUser sortUser = new SortUser();
         Set<User> userSet = sortUser.sort(users);
@@ -30,11 +30,11 @@ public class SortUserTest {
 
     @Test
     public void whenSortNameLength() {
-        List<User> users = new ArrayList<>(4);
-        users.add(new User("Alex", 16));
-        users.add(new User("William", 20));
-        users.add(new User("Shawn", 41));
-        users.add(new User("John", 60));
+        List<User> users = List.of(
+                new User("Alex", 16),
+                new User("William", 20),
+                new User("Shawn", 41),
+                new User("John", 60));
 
         SortUser sort = new SortUser();
         List<User> userTest = sort.sortNameLength(users);
@@ -47,11 +47,11 @@ public class SortUserTest {
 
     @Test
     public void whenSortByAllFields() {
-        List<User> users = new ArrayList<>(4);
-        users.add(new User("Сергей", 25));
-        users.add(new User("Сергей", 20));
-        users.add(new User("Иван", 25));
-        users.add(new User("Иван", 30));
+        List<User> users = List.of(
+                new User("Сергей", 25),
+                new User("Сергей", 20),
+                new User("Иван", 25),
+                new User("Иван", 30));
 
         SortUser sort = new SortUser();
         List<User> userTest = sort.sortByAllFields(users);
