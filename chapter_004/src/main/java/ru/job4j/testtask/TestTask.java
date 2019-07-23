@@ -1,4 +1,4 @@
-package ru.job4j.testTask;
+package ru.job4j.testtask;
 
 import java.util.Arrays;
 import java.util.function.Predicate;

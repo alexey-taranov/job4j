@@ -1,7 +1,7 @@
-package ru.job4j.testTaskTest;
+package ru.job4j.testtasktest;
 
 import org.junit.Test;
-import ru.job4j.testTask.TestTask;
+import ru.job4j.testtask.TestTask;
 
 
 import static org.hamcrest.core.Is.is;
