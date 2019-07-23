@@ -14,22 +14,21 @@ public class EvenNumbersIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-
+        boolean res = false;
         for (int i = firstIndex; i < value.length; i++) {
             if (value[i] % 2 == 0) {
-                return true;
+               res = true;
+               firstIndex = i;
+               break;
             }
         }
-        return false;
+        return res;
     }
 
     @Override
     public Object next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
-        }
-        while (value[firstIndex] % 2 != 0) {
-            firstIndex++;
         }
         return value[firstIndex++];
     }
