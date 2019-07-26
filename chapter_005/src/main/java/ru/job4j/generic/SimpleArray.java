@@ -14,6 +14,10 @@ public class SimpleArray<T> implements Iterable<T> {
         this.array = new Object[size];
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public void add(T model) {
         if (ind < size) {
             array[ind++] = model;
