@@ -2,8 +2,6 @@ package ru.job4j.generic.store;
 
 import ru.job4j.generic.SimpleArray;
 
-import java.util.NoSuchElementException;
-
 public class AbstractStore<T extends Base> implements Store<T> {
 
     SimpleArray<T> array;
@@ -19,8 +17,9 @@ public class AbstractStore<T extends Base> implements Store<T> {
 
     @Override
     public boolean replace(String id, T model) {
-        if (Integer.valueOf(id) < array.getSize() && Integer.valueOf(id) >= 0) {
-            array.set(Integer.valueOf(id), model);
+        int ind = findIndex(id);
+        if (ind != -1) {
+            array.set(ind, model);
             return true;
         } else {
             return false;
@@ -29,8 +28,9 @@ public class AbstractStore<T extends Base> implements Store<T> {
 
     @Override
     public boolean delete(String id) {
-        if (Integer.valueOf(id) < array.getSize() && Integer.valueOf(id) >= 0) {
-            array.remove(Integer.valueOf(id));
+        int ind = findIndex(id);
+        if (ind != -1) {
+            array.remove(ind);
             return true;
         } else {
             return false;
@@ -39,10 +39,20 @@ public class AbstractStore<T extends Base> implements Store<T> {
 
     @Override
     public T findById(String id) {
-        if (Integer.valueOf(id) < array.getSize() && Integer.valueOf(id) >= 0) {
-            return array.get(Integer.valueOf(id));
-        } else {
-            throw new NoSuchElementException();
+        int ind = findIndex(id);
+        return ind != -1 ? array.get(ind) : null;
+    }
+
+    public int findIndex(String id) {
+        int index = -1;
+        int pos = 0;
+        for (T element : array) {
+            if (element.getId().equals(id)) {
+                index = pos;
+                break;
+            }
+            pos++;
         }
+        return index;
     }
 }

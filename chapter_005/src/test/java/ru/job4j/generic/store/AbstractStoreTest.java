@@ -28,7 +28,8 @@ public class AbstractStoreTest {
         store.add(user0);
         store.add(user1);
         store.replace("0", user1);
-        assertThat(store.findById("0"), is(user1));
+        assertThat(store.findIndex("1"), is(0));
+        assertThat(store.findById("0"), is((User) null));
     }
 
     @Test
@@ -39,6 +40,7 @@ public class AbstractStoreTest {
         store.add(user0);
         store.add(user1);
         store.delete("0");
-        assertThat(store.findById("0"), is(user1));
+        assertThat(store.findIndex("1"), is(0));
+        assertThat(store.findById("0"), is((User) null));
     }
 }
