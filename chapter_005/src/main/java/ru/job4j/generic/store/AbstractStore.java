@@ -4,7 +4,7 @@ import ru.job4j.generic.SimpleArray;
 
 public class AbstractStore<T extends Base> implements Store<T> {
 
-    SimpleArray<T> array;
+    private SimpleArray<T> array;
 
     public AbstractStore(SimpleArray<T> array) {
         this.array = array;
