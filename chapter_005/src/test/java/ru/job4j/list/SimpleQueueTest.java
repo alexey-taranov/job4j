@@ -7,17 +7,26 @@ import static org.junit.Assert.assertThat;
 
 public class SimpleQueueTest {
 
-    SimpleQueue queue = new SimpleQueue();
+    SimpleQueue<Integer> queue = new SimpleQueue();
 
     @Test
-    public void whenAddFourElementsThenUseGetZeroAndOneResultThreeAndFour() {
+    public void whenAddFourElementsThenPollResultOneAndTwo() {
         queue.push(1);
         queue.push(2);
         queue.push(3);
         queue.push(4);
-        queue.poll();
-        queue.poll();
-        assertThat(queue.getSimpleStack().get(0), is(3));
-        assertThat(queue.getSimpleStack().get(1), is(4));
+        assertThat(queue.poll(), is(1));
+        assertThat(queue.poll(), is(2));
+    }
+
+    @Test
+    public void whenAddFourElementsThenPollNotOrderResultOneAndTwo() {
+        queue.push(1);
+        queue.push(2);
+        assertThat(queue.poll(), is(1));
+        queue.push(3);
+        assertThat(queue.poll(), is(2));
+        queue.push(4);
+        assertThat(queue.poll(), is(3));
     }
 }

@@ -2,17 +2,25 @@ package ru.job4j.list;
 
 public class SimpleQueue<T> {
 
-    private SimpleStack<T> stack = new SimpleStack<>();
+    private SimpleStack<T> inStack = new SimpleStack<>();
+    private SimpleStack<T> outStack = new SimpleStack<>();
+    private int inSize = 0;
+    private int outSize = 0;
 
     public void push(T value) {
-        this.stack.push(value);
+        this.inStack.push(value);
+        this.inSize++;
     }
 
     public T poll() {
-        return this.stack.getSimpleStack().deleteFirstElement();
-    }
-
-    public DynamicLinkedList<T> getSimpleStack() {
-        return stack.getSimpleStack();
+        if (outSize == 0) {
+            while (inSize != 0) {
+                outStack.push(inStack.poll());
+                inSize--;
+                outSize++;
+            }
+        }
+        outSize--;
+        return outStack.poll();
     }
 }
