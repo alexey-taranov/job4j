@@ -34,6 +34,17 @@ public class DynamicLinkedList<E> implements Iterable<E> {
         return result.data;
     }
 
+    public E deleteFirstElement() {
+        if (this.size == 0) {
+            throw new NoSuchElementException();
+        }
+        Node<E> rst = this.first;
+        this.first = rst.next;
+        this.size--;
+        this.modCount++;
+        return rst.data;
+    }
+
     public E deleteLastElement() {
         if (this.size == 0) {
             throw new NoSuchElementException();
