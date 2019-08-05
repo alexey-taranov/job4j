@@ -17,4 +17,15 @@ public class SimpleSetTest {
         set.add(3);
         assertThat(set.getCapacity(), is(3));
     }
+
+    @Test
+    public void whenAddNullThenPrintNull() {
+        SimpleSet<Integer> set = new SimpleSet<>(10);
+        set.add(1);
+        set.add(null);
+        set.add(2);
+        for (Integer data : set) {
+            System.out.println(data);
+        }
+    }
 }

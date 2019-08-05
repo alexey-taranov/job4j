@@ -14,19 +14,10 @@ public class SimpleSet<E> implements Iterable<E> {
     }
 
     public void add(E e) {
-        if (!compareValue(e)) {
+        if (!simpleSet.compareValue(e)) {
             simpleSet.add(e);
             capacity++;
         }
-    }
-
-    public boolean compareValue(E e)  {
-        for (E data : simpleSet) {
-            if (data.equals(e)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public int getCapacity()  {

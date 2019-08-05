@@ -3,6 +3,7 @@ package ru.job4j.list;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 public class DynamicList<E> implements Iterable<E> {
 
@@ -33,9 +34,18 @@ public class DynamicList<E> implements Iterable<E> {
         }
     }
 
+    public boolean compareValue(E value) {
+        for (int i = 0; i < index; i++) {
+            if (Objects.equals(value, container[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public Iterator<E> iterator() {
-        return new Iterator<E>() {
+        return new Iterator<>() {
             private int expectedModCount = modCount;
             private int iterIndex = 0;
 
