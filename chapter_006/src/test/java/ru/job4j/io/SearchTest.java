@@ -13,9 +13,9 @@ import static org.junit.Assert.*;
 
 public class SearchTest {
 
-    private final static String PATH = System.getProperty("java.io.tmpdir") + "/JavaSearchTest";
-    private static File dir1 = new File(PATH + "/dir1");
-    private static File dir2 = new File(PATH + "/dir2");
+    private final static String PATH = System.getProperty("java.io.tmpdir") + File.separator + "JavaSearchTest";
+    private static File dir1 = new File(PATH + File.separator + "dir1");
+    private static File dir2 = new File(PATH + File.separator + "dir2");
 
     @Before
     public void createSystem() throws IOException {
