@@ -11,7 +11,7 @@ public class ShowItems extends BaseAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public void execute(Input input, ITracker tracker) {
         output.accept("Список всех заявок:");
         output.accept("-----------------------");
         for (Item item : tracker.findAll()) {

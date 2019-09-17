@@ -9,7 +9,7 @@ class AddItem extends BaseAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public void execute(Input input, ITracker tracker) {
         String name = input.ask("Enter name:");
         String desc = input.ask("Enter description:");
         tracker.add(new Item(name, desc, System.currentTimeMillis()));

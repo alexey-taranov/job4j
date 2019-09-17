@@ -9,7 +9,7 @@ public class UpdateItem extends BaseAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public void execute(Input input, ITracker tracker) {
         output.accept("Редактирование заявки.");
         String id = input.ask("Введите id заявки для ее изменения: ");
         String name = input.ask("Введите новое имя заявки: ");

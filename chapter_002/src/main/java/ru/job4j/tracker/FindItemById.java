@@ -10,7 +10,7 @@ public class FindItemById extends BaseAction {
     }
 
     @Override
-    public void execute(Input input, Tracker tracker) {
+    public void execute(Input input, ITracker tracker) {
         output.accept("Поиск заявки по id");
         String id = input.ask("Введите id заявки: ");
         Item item = tracker.findById(id);
