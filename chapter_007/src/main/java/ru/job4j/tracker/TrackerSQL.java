@@ -77,9 +77,9 @@ public class TrackerSQL implements ITracker, AutoCloseable {
         try (PreparedStatement prst = this.connection.prepareStatement("select * from items")) {
             ResultSet resSet = prst.executeQuery();
             while (resSet.next()) {
-                String name = resSet.getString(2);
-                String desc = resSet.getString(3);
-                long time = resSet.getLong(4);
+                String name = resSet.getString("name");
+                String desc = resSet.getString("descr");
+                long time = resSet.getLong("time");
                 Item item = new Item(name, desc, time);
                 result.add(item);
             }
@@ -98,9 +98,9 @@ public class TrackerSQL implements ITracker, AutoCloseable {
             ResultSet resSet = prst.executeQuery();
             while (resSet.next()) {
                 if (resSet.getString("name").equals(key)) {
-                    String name = resSet.getString(2);
-                    String desc = resSet.getString(3);
-                    long time = resSet.getLong(4);
+                    String name = resSet.getString("name");
+                    String desc = resSet.getString("descr");
+                    long time = resSet.getLong("time");
                     Item item = new Item(name, desc, time);
                     result.add(item);
                 }
@@ -118,9 +118,9 @@ public class TrackerSQL implements ITracker, AutoCloseable {
             ResultSet resSet = prst.executeQuery();
             while (resSet.next()) {
                 if (resSet.getString("id").equals(id)) {
-                    String name = resSet.getString(2);
-                    String desc = resSet.getString(3);
-                    long time = resSet.getLong(4);
+                    String name = resSet.getString("name");
+                    String desc = resSet.getString("descr");
+                    long time = resSet.getLong("time");
                     Item item = new Item(name, desc, time);
                     return item;
                 }
