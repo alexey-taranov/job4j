@@ -18,14 +18,19 @@ public class StoreSQL implements AutoCloseable {
             PreparedStatement st = this.connect.prepareStatement("create table if not exists entry(field integer)");
             st.executeUpdate();
             try (PreparedStatement prst = this.connect.prepareStatement("insert into entry values (?);")) {
+                this.connect.setAutoCommit(false);
                 for (int i = 1; i <= size; i++) {
                     prst.setInt(1, i);
-                    prst.execute();
-                    prst.close();
+                    prst.addBatch();
                 }
+                this.connect.commit();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            try {
+                this.connect.rollback();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
