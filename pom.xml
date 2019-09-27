@@ -26,6 +26,18 @@
                 <db.driver>com.mysql.cj.jdbc.Driver</db.driver>
             </properties>
         </profile>
+        <profile>
+            <id>travis</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <db.url>jdbc:mysql://127.0.0.1:3306/tracker?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</db.url>
+                <db.username>root</db.username>
+                <db.password></db.password>
+                <db.driver>com.mysql.cj.jdbc.Driver</db.driver>
+            </properties>
+        </profile>
     </profiles>
 
     <properties>
