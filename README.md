@@ -2,6 +2,18 @@
 [![codecov](https://codecov.io/gh/alexey-taranov/job4j/branch/master/graph/badge.svg)](https://codecov.io/gh/alexey-taranov/job4j)
 # job4j
 
+#### Here are some interesting tasks:
+
+ * [XML XSLT JDBC Parsing and converting.](https://github.com/alexey-taranov/job4j/tree/master/chapter_007/src/main/java/ru/job4j)
+
+ * [Simple HashMap implementation.](https://github.com/alexey-taranov/job4j/commit/9917819e3af9e7ef5941c626dcd997b288f0bfaa)
+
+ * [Simple console zip-archiver of files by extension in specified folder.](https://github.com/alexey-taranov/job4j/tree/master/chapter_006/src/main/java/ru/job4j/io)
+
+ * [Server and client implementations](https://github.com/alexey-taranov/job4j/tree/master/chapter_006/src/main/java/ru/job4j/socket)
+ 
+ * [Vacancy parser](https://github.com/alexey-taranov/vacancy-parser)
+ 
  #### Content:
  
  **chapter_001.** Basic syntax Java: conditionals, cycles, primitive types, arrays.

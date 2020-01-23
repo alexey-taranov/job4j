@@ -14,6 +14,10 @@ target
 
 .idea
 *.iml
+.travis.yml
+deploy.sh
+LICENSE
+checkstyle.xml
 
 # Package Files #
 *.jar
